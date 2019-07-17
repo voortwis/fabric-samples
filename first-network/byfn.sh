@@ -204,7 +204,7 @@ function networkUp() {
 # and relaunch the orderer and peers with latest tag
 function upgradeNetwork() {
   if [[ "$IMAGETAG" == *"1.4"* ]] || [[ $IMAGETAG == "latest" ]]; then
-    docker inspect -f '{{.Config.Volumes}}' orderer.example.com | grep -q '/var/hyperledger/production/orderer'
+    docker inspect -f '{{.Config.Volumes}}' orderer.dev.tikc.nl | grep -q '/var/hyperledger/production/orderer'
     if [ $? -ne 0 ]; then
       echo "ERROR !!!! This network does not appear to start with fabric-samples >= v1.3.x?"
       exit 1
@@ -236,9 +236,9 @@ function upgradeNetwork() {
     docker-compose $COMPOSE_FILES up -d --no-deps cli
 
     echo "Upgrading orderer"
-    docker-compose $COMPOSE_FILES stop orderer.example.com
-    docker cp -a orderer.example.com:/var/hyperledger/production/orderer $LEDGERS_BACKUP/orderer.example.com
-    docker-compose $COMPOSE_FILES up -d --no-deps orderer.example.com
+    docker-compose $COMPOSE_FILES stop orderer.dev.tikc.nl
+    docker cp -a orderer.dev.tikc.nl:/var/hyperledger/production/orderer $LEDGERS_BACKUP/orderer.dev.tikc.nl
+    docker-compose $COMPOSE_FILES up -d --no-deps orderer.dev.tikc.nl
 
     for PEER in peer0.org1.example.com peer1.org1.example.com peer0.org2.example.com peer1.org2.example.com; do
       echo "Upgrading peer $PEER"

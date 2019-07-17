@@ -6,7 +6,7 @@
 version: '2'
 
 volumes:
-  orderer.example.com:
+  orderer.dev.tikc.nl:
   peer0.org1.example.com:
   peer1.org1.example.com:
   peer0.org2.example.com:
@@ -49,11 +49,11 @@ services:
     networks:
       - byfn
 
-  orderer.example.com:
+  orderer.dev.tikc.nl:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer.example.com
-    container_name: orderer.example.com
+      service: orderer.dev.tikc.nl
+    container_name: orderer.dev.tikc.nl
     networks:
       - byfn
 
