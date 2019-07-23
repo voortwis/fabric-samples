@@ -7,10 +7,10 @@ version: '2'
 
 volumes:
   orderer.dev.tikc.nl:
-  peer0.org1.example.com:
-  peer1.org1.example.com:
-  peer0.org2.example.com:
-  peer1.org2.example.com:
+  peer0.dev.tikc.nl:
+  peer1.dev.tikc.nl:
+  peer0.dev.taxinnos.nl:
+  peer1.dev.taxinnos.nl:
 
 networks:
   byfn:
@@ -21,13 +21,13 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.dev.tikc.nl-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/CA1_PRIVATE_KEY
     ports:
       - "7054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/CA1_PRIVATE_KEY -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.dev.tikc.nl-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/CA1_PRIVATE_KEY -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./crypto-config/peerOrganizations/dev.tikc.nl/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca_peerOrg1
     networks:
       - byfn
@@ -38,13 +38,13 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.dev.taxinnos.nl-cert.pem
       - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/CA2_PRIVATE_KEY
     ports:
       - "8054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/CA2_PRIVATE_KEY -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.dev.taxinnos.nl-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/CA2_PRIVATE_KEY -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ./crypto-config/peerOrganizations/dev.taxinnos.nl/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca_peerOrg2
     networks:
       - byfn
@@ -57,34 +57,34 @@ services:
     networks:
       - byfn
 
-  peer0.org1.example.com:
-    container_name: peer0.org1.example.com
+  peer0.dev.tikc.nl:
+    container_name: peer0.dev.tikc.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org1.example.com
+      service: peer0.dev.tikc.nl
     networks:
       - byfn
 
-  peer1.org1.example.com:
-    container_name: peer1.org1.example.com
+  peer1.dev.tikc.nl:
+    container_name: peer1.dev.tikc.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org1.example.com
+      service: peer1.dev.tikc.nl
     networks:
       - byfn
 
-  peer0.org2.example.com:
-    container_name: peer0.org2.example.com
+  peer0.dev.taxinnos.nl:
+    container_name: peer0.dev.taxinnos.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org2.example.com
+      service: peer0.dev.taxinnos.nl
     networks:
       - byfn
 
-  peer1.org2.example.com:
-    container_name: peer1.org2.example.com
+  peer1.dev.taxinnos.nl:
+    container_name: peer1.dev.taxinnos.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org2.example.com
+      service: peer1.dev.taxinnos.nl
     networks:
       - byfn

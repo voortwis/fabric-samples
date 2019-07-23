@@ -7,10 +7,10 @@ version: '2'
 
 volumes:
   orderer.dev.tikc.nl:
-  peer0.org1.example.com:
-  peer1.org1.example.com:
-  peer0.org2.example.com:
-  peer1.org2.example.com:
+  peer0.dev.tikc.nl:
+  peer1.dev.tikc.nl:
+  peer0.dev.taxinnos.nl:
+  peer1.dev.taxinnos.nl:
 
 networks:
   byfn:
@@ -25,35 +25,35 @@ services:
     networks:
       - byfn
 
-  peer0.org1.example.com:
-    container_name: peer0.org1.example.com
+  peer0.dev.tikc.nl:
+    container_name: peer0.dev.tikc.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org1.example.com
+      service: peer0.dev.tikc.nl
     networks:
       - byfn
 
-  peer1.org1.example.com:
-    container_name: peer1.org1.example.com
+  peer1.dev.tikc.nl:
+    container_name: peer1.dev.tikc.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org1.example.com
+      service: peer1.dev.tikc.nl
     networks:
       - byfn
 
-  peer0.org2.example.com:
-    container_name: peer0.org2.example.com
+  peer0.dev.taxinnos.nl:
+    container_name: peer0.dev.taxinnos.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org2.example.com
+      service: peer0.dev.taxinnos.nl
     networks:
       - byfn
 
-  peer1.org2.example.com:
-    container_name: peer1.org2.example.com
+  peer1.dev.taxinnos.nl:
+    container_name: peer1.dev.taxinnos.nl
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org2.example.com
+      service: peer1.dev.taxinnos.nl
     networks:
       - byfn
 
@@ -69,13 +69,13 @@ services:
       #- FABRIC_LOGGING_SPEC=DEBUG
       - FABRIC_LOGGING_SPEC=INFO
       - CORE_PEER_ID=cli
-      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+      - CORE_PEER_ADDRESS=peer0.dev.tikc.nl:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/dev.tikc.nl/peers/peer0.dev.tikc.nl/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/dev.tikc.nl/peers/peer0.dev.tikc.nl/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/dev.tikc.nl/peers/peer0.dev.tikc.nl/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/dev.tikc.nl/users/Admin@dev.tikc.nl/msp
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
@@ -86,9 +86,9 @@ services:
         - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
     depends_on:
       - orderer.dev.tikc.nl
-      - peer0.org1.example.com
-      - peer1.org1.example.com
-      - peer0.org2.example.com
-      - peer1.org2.example.com
+      - peer0.dev.tikc.nl
+      - peer1.dev.tikc.nl
+      - peer0.dev.taxinnos.nl
+      - peer1.dev.taxinnos.nl
     networks:
       - byfn

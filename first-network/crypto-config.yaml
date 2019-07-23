@@ -30,7 +30,7 @@ PeerOrgs:
   # Org1
   # ---------------------------------------------------------------------------
   - Name: Org1
-    Domain: org1.example.com
+    Domain: dev.tikc.nl
     EnableNodeOUs: true
     # ---------------------------------------------------------------------------
     # "Specs"
@@ -49,7 +49,7 @@ PeerOrgs:
     #                 Org.Domain, respectively.
     # ---------------------------------------------------------------------------
     # Specs:
-    #   - Hostname: foo # implicitly "foo.org1.example.com"
+    #   - Hostname: foo # implicitly "foo.dev.tikc.nl"
     #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz
@@ -80,7 +80,7 @@ PeerOrgs:
   # Org2: See "Org1" for full specification
   # ---------------------------------------------------------------------------
   - Name: Org2
-    Domain: org2.example.com
+    Domain: dev.taxinnos.nl
     EnableNodeOUs: true
     Template:
       Count: 2

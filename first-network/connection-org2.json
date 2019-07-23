@@ -15,40 +15,40 @@
         "Org2": {
             "mspid": "Org2MSP",
             "peers": [
-                "peer0.org2.example.com",
-                "peer1.org2.example.com"
+                "peer0.dev.taxinnos.nl",
+                "peer1.dev.taxinnos.nl"
             ],
             "certificateAuthorities": [
-                "ca.org2.example.com"
+                "ca.dev.taxinnos.nl"
             ]
         }
     },
     "peers": {
-        "peer0.org2.example.com": {
+        "peer0.dev.taxinnos.nl": {
             "url": "grpcs://localhost:9051",
             "tlsCACerts": {
-                "path": "crypto-config/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem"
+                "path": "crypto-config/peerOrganizations/dev.taxinnos.nl/tlsca/tlsca.dev.taxinnos.nl-cert.pem"
             },
             "grpcOptions": {
-                "ssl-target-name-override": "peer0.org2.example.com"
+                "ssl-target-name-override": "peer0.dev.taxinnos.nl"
             }
         },
-        "peer1.org2.example.com": {
+        "peer1.dev.taxinnos.nl": {
             "url": "grpcs://localhost:10051",
             "tlsCACerts": {
-                "path": "crypto-config/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem"
+                "path": "crypto-config/peerOrganizations/dev.taxinnos.nl/tlsca/tlsca.dev.taxinnos.nl-cert.pem"
             },
             "grpcOptions": {
-                "ssl-target-name-override": "peer1.org2.example.com"
+                "ssl-target-name-override": "peer1.dev.taxinnos.nl"
             }
         }
     },
     "certificateAuthorities": {
-        "ca.org2.example.com": {
+        "ca.dev.taxinnos.nl": {
             "url": "https://localhost:8054",
             "caName": "ca-org2",
             "tlsCACerts": {
-                "path": "crypto-config/peerOrganizations/org2.example.com/tlsca/tlsca.org2.example.com-cert.pem"
+                "path": "crypto-config/peerOrganizations/dev.taxinnos.nl/tlsca/tlsca.dev.taxinnos.nl-cert.pem"
             },
             "httpOptions": {
                 "verify": false

@@ -20,91 +20,91 @@ services:
     ports:
       - 7050:7050
 
-  peer0.org1.example.com:
-    container_name: peer0.org1.example.com
+  peer0.dev.tikc.nl:
+    container_name: peer0.dev.tikc.nl
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.org1.example.com
-      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+      - CORE_PEER_ID=peer0.dev.tikc.nl
+      - CORE_PEER_ADDRESS=peer0.dev.tikc.nl:7051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.org1.example.com:7052
+      - CORE_PEER_CHAINCODEADDRESS=peer0.dev.tikc.nl:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.example.com:8051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.example.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.dev.tikc.nl:8051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.dev.tikc.nl:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/fabric/tls
-        - peer0.org1.example.com:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/dev.tikc.nl/peers/peer0.dev.tikc.nl/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/dev.tikc.nl/peers/peer0.dev.tikc.nl/tls:/etc/hyperledger/fabric/tls
+        - peer0.dev.tikc.nl:/var/hyperledger/production
     ports:
       - 7051:7051
 
-  peer1.org1.example.com:
-    container_name: peer1.org1.example.com
+  peer1.dev.tikc.nl:
+    container_name: peer1.dev.tikc.nl
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer1.org1.example.com
-      - CORE_PEER_ADDRESS=peer1.org1.example.com:8051
+      - CORE_PEER_ID=peer1.dev.tikc.nl
+      - CORE_PEER_ADDRESS=peer1.dev.tikc.nl:8051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org1.example.com:8052
+      - CORE_PEER_CHAINCODEADDRESS=peer1.dev.tikc.nl:8052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.example.com:8051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.example.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.dev.tikc.nl:8051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.dev.tikc.nl:7051
       - CORE_PEER_LOCALMSPID=Org1MSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls:/etc/hyperledger/fabric/tls
-        - peer1.org1.example.com:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/dev.tikc.nl/peers/peer1.dev.tikc.nl/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/dev.tikc.nl/peers/peer1.dev.tikc.nl/tls:/etc/hyperledger/fabric/tls
+        - peer1.dev.tikc.nl:/var/hyperledger/production
 
     ports:
       - 8051:8051
 
-  peer0.org2.example.com:
-    container_name: peer0.org2.example.com
+  peer0.dev.taxinnos.nl:
+    container_name: peer0.dev.taxinnos.nl
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.org2.example.com
-      - CORE_PEER_ADDRESS=peer0.org2.example.com:9051
+      - CORE_PEER_ID=peer0.dev.taxinnos.nl
+      - CORE_PEER_ADDRESS=peer0.dev.taxinnos.nl:9051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:9051
-      - CORE_PEER_CHAINCODEADDRESS=peer0.org2.example.com:9052
+      - CORE_PEER_CHAINCODEADDRESS=peer0.dev.taxinnos.nl:9052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:9052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.example.com:9051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org2.example.com:10051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.dev.taxinnos.nl:9051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.dev.taxinnos.nl:10051
       - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls:/etc/hyperledger/fabric/tls
-        - peer0.org2.example.com:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/dev.taxinnos.nl/peers/peer0.dev.taxinnos.nl/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/dev.taxinnos.nl/peers/peer0.dev.taxinnos.nl/tls:/etc/hyperledger/fabric/tls
+        - peer0.dev.taxinnos.nl:/var/hyperledger/production
     ports:
       - 9051:9051
 
-  peer1.org2.example.com:
-    container_name: peer1.org2.example.com
+  peer1.dev.taxinnos.nl:
+    container_name: peer1.dev.taxinnos.nl
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer1.org2.example.com
-      - CORE_PEER_ADDRESS=peer1.org2.example.com:10051
+      - CORE_PEER_ID=peer1.dev.taxinnos.nl
+      - CORE_PEER_ADDRESS=peer1.dev.taxinnos.nl:10051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:10051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org2.example.com:10052
+      - CORE_PEER_CHAINCODEADDRESS=peer1.dev.taxinnos.nl:10052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.example.com:10051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.example.com:9051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.dev.taxinnos.nl:10051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.dev.taxinnos.nl:9051
       - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls:/etc/hyperledger/fabric/tls
-        - peer1.org2.example.com:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/dev.taxinnos.nl/peers/peer1.dev.taxinnos.nl/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/dev.taxinnos.nl/peers/peer1.dev.taxinnos.nl/tls:/etc/hyperledger/fabric/tls
+        - peer1.dev.taxinnos.nl:/var/hyperledger/production
     ports:
       - 10051:10051
